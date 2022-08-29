@@ -1,0 +1,430 @@
+SELECT distinct P.model as first, L.model as Secind, P.speed, P.ram
+FROM PC P JOIN
+ 
+     (SELECT speed, ram
+      FROM PC
+      GROUP BY speed, ram
+      HAVING COUNT(*) >= 2
+      ) as S 
+
+ON P.speed = S.speed AND 
+             P.ram = S.ram JOIN 
+
+      PC L ON L.speed = S.speed AND 
+              L.ram = S.ram AND 
+              L.model < P.model
+
+
+Задача 52 
+
+SELECT distinct flag FROM 
+(SELECT 
+
+CASE 
+WHEN country='japan' 
+THEN  s.name
+ELSE null
+END flag
+
+FROM classes c
+join ships s on s.class= c.class
+
+WHERE 
+type='bb' or type is null
+and bore <= 19 
+and displacement <= 65000 
+
+
+Задача 65
+select row_number() over(order by maker, sort), 
+case 
+   when RANK() OVER (PARTITION BY maker ORDER BY maker, sort) = 1 
+   then maker
+   else '' end maker
+, type 
+  from 
+(
+select case type
+when 'PC' 
+then 0 
+when 'laptop' 
+then 1 
+else 2 end as sort
+,
+ maker, type from product
+group by maker, type
+) as ass
+
+and numGuns >= 9 
+and name is not null
+) X
+where flag is not null
+
+задача 68
+with s as (
+  select count(*) as qty, max(count(*)) over() as mqty
+  from trip
+  group by case when town_from < town_to then concat(town_from, town_to) else concat(town_to, town_from) end
+)
+select count(*) as qty from s where qty = mqty
+
+Задача 69
+with a as(
+select point , date, inc, 'inc' as io from income 
+union all
+select point , date, -out, 'out' as io from outcome
+) 
+select point ,CONVERT(char(25), CONVERT(datetime,date), 103) as date,
+ 
+  (SELECT SUM(inc) 
+   FROM a b
+   WHERE point = a.point AND date <= a.date) run_tot 
+
+from a
+
+group by point, date
+ 
+задача 70
+with a as(
+Select distinct ship, battle, class from outcomes o
+ join ships s on ship=name 
+union 
+Select distinct ship, battle, class from outcomes o
+ join classes s on ship=class 
+)
+
+Select distinct battle from a
+join classes c on c.class = a.class 
+group by battle, country
+having count(ship) >= 3
+
+Задача 72 
+select  (select name from passenger where id_psg = a.id_psg) as name, ctn from
+(
+select  id_psg , count(pt.trip_no) ctn, max(count(pt.trip_no)) over () as mctn
+from pass_in_trip pt
+ join trip t on t.trip_no = pt.trip_no 
+group by  id_psg
+having count(distinct id_comp) =1 
+) as a
+where ctn = mctn
+
+Задача 73 
+SELECT DISTINCT c.country, b.name
+FROM battles b, classes c
+
+MINUS
+
+SELECT c.country, o.battle
+FROM outcomes o
+LEFT JOIN ships s ON s.name = o.ship
+LEFT JOIN classes c ON o.ship = c.class OR s.class = c.class
+WHERE c.country IS NOT NULL
+GROUP BY c.country, o.battle
+
+Задача 75 
+SELECT p.maker,
+	max(l.price) laptop,
+	max(pc.price) price,
+	max(pr.price) printer
+FROM Product p
+	LEFT JOIN Laptop l ON p.model = l.model 
+	LEFT JOIN PC pc ON p.model = pc.model 
+	LEFT JOIN Printer pr ON p.model = pr.model
+WHERE COALESCE(pc.price,l.price,pr.price) IS not null 
+
+GROUP BY maker
+
+Задача 76
+with a as(
+SELECT id_psg as pid
+from pass_in_trip 
+group by id_psg
+having id_psg in
+ (select id_psg from pass_in_trip group by id_psg 
+having count(distinct place) = count(place))
+)
+
+select (select name from passenger where id_psg = p.id_psg), sum(DATEDIFF (minute, time_out, DATEADD(DAY,IIF(time_in<time_out,1,0),time_in))) AS timeFlight 
+
+from pass_in_trip p 
+join trip t on t.trip_no = p.trip_no
+where id_psg = any(select pid from a)
+group by id_psg
+
+Задача 77
+with a as(
+select count(DISTINCT t.trip_no) as t_n, date 
+from pass_in_trip pit
+join  trip t on t.trip_no = pit.trip_no 
+and town_from = 'rostov'
+group by date) 
+select top 1 with ties *  from a
+order by 1 desc
+
+Задача 78 
+SELECT name, CONVERT(CHAR(12), DATEADD(m, DATEDIFF(m,0,date),0), 23) AS FD,
+EOMONTH(date) AS LD 
+FROM Battles
+...
+Вариант 2
+SELECT name,CAST(DATEADD(DAY,-DAY(date)+1,date)as date),EOMONTH(date)  
+FROM Battles
+
+задача 81
+select o.* 
+from outcome o
+inner join
+(select top 1 with ties month(date) as m, year(date) as y, sum(out) as s 
+from outcome
+group by month(date), year(date)
+order by s desc
+)  x on year(o.date) = y and month(o.date) = m
+
+Задача 82 
+with a(code, price, id) as(
+SELECT PC.code,PC.price, ROW_NUMBER() OVER (ORDER BY PC.code)
+FROM PC
+)
+select max(a.code), avg(b.price) from a
+join a as b on (b.id - a.id) < 6 and (b.id - a.id) >= 0
+group by  a.id
+having count(a.id) = 6
+
+Задача 86
+Select maker, 
+case count(distinct type) when  1 then max(type) 
+when  2 then min(type)+'/'+max(type)
+when  3 then 'Laptop/PC/Printer' end as types
+from product
+group by maker
+
+ вариант 2 с СТРИНГ АГГ
+
+SELECT maker, STRING_AGG(type, '/') WITHIN GROUP (ORDER BY type ASC)
+FROM
+(Select distinct maker, type
+from product)X
+GROUP BY maker
+
+Задача 87
+ 
+SELECT NAME, QNT FROM
+(
+SELECT TOP 1 WITH TIES PSG.NAME, TRIP.TOWN_FROM, SUM(CASE WHEN 
+TRIP.TOWN_TO='MOSCOW' THEN 1 END) OVER (PARTITION BY PSG.ID_PSG) AS QNT FROM 
+
+PASSENGER PSG
+JOIN PASS_IN_TRIP PIT ON PSG.ID_PSG=PIT.ID_PSG
+JOIN TRIP ON PIT.TRIP_NO=TRIP.TRIP_NO
+
+ORDER BY ROW_NUMBER() OVER (PARTITION BY PSG.ID_PSG ORDER BY PIT.DATE+TRIP.TIME_OUT)
+)
+T1
+WHERE TOWN_FROM<> 'MOSCOW' AND QNT> 1
+
+Задача 88 
+
+Select top 1 with ties (select name from passenger p where p.id_psg = pt.id_psg) ,count(t.trip_no) as cc, (select name from company c where max(t.id_comp) = c.id_comp)
+from trip t
+join pass_in_trip pt on pt.trip_no = t.trip_no
+group by id_psg
+having count(distinct id_comp)= 1 
+order by count(t.trip_no) desc
+
+Задача 89
+SELECT maker,c FROM(
+SELECT	maker,count(model) AS c,
+min(count(model)) OVER () AS mn,
+max(count(model)) OVER () AS mx
+FROM product
+GROUP BY maker) AS foo
+WHERE c = mn
+OR c = mx
+
+Задача 91
+SELECT CAST( 
+             1.0 * 
+            CASE
+                WHEN (SELECT Sum(B_VOL) FROM utB) IS NULL 
+                THEN 0 
+                ELSE (SELECT Sum(B_VOL) FROM utB) 
+            END 
+           /
+             (SELECT count(*) FROM utQ) 
+          AS NUMERIC(6,2)) avg_paint
+Задача 92
+
+with a as(
+select B_Q_ID, sum(b_vol) as suma  from utb
+group by B_Q_ID
+having sum(b_vol) = 765
+),
+b as(
+select B_V_ID, sum(b_vol) as sumb
+from utb
+group by B_V_ID
+having sum(b_vol) = 255
+), c as (
+select B_Q_ID, case when B_V_ID in (select B_V_ID from  b) then 1 else 0 end as cnt
+from utb
+where B_Q_ID in (select B_Q_ID from  a)
+) 
+select (select q_name from utq where B_Q_ID = q_id) from c
+group by  B_Q_ID 
+having count(B_Q_ID) = sum(cnt)
+
+Задача 93
+
+with a as(
+select  DISTINCT ID_comp,t.trip_no, DATE,
+DATEDIFF (minute, time_out, 
+DATEADD(DAY,IIF(time_in<time_out,1,0),time_in)) as ddif
+ from trip t
+join pass_in_trip pit on pit.trip_no =t.trip_no
+) 
+select name, sum(ddif) from a
+join company c on c.ID_comp= a.ID_comp
+group by name
+
+Задача 94
+SELECT DATEADD(day, s.Num, d.date) AS Dt,
+
+(SELECT COUNT(DISTINCT P.trip_no)
+        FROM Pass_in_trip P
+               JOIN Trip T
+                 ON P.trip_no = T.trip_no
+                    AND T.town_from = 'Rostov'
+                    AND P.date = DATEADD(day, s.Num, d.date)
+) as qty
+
+
+FROM   (SELECT (3 * ( x - 1 ) + y - 1) AS Num
+        FROM (SELECT 1 AS x UNION ALL SELECT 2 UNION ALL SELECT 3) AS N1
+               CROSS JOIN (SELECT 1 AS y UNION ALL SELECT 2 UNION ALL SELECT 3) AS N2
+        WHERE (3 * ( x - 1 ) + y ) < 8) AS S,
+
+
+(SELECT MIN(A.date) AS date
+        FROM (SELECT P.date,
+                       COUNT(DISTINCT P.trip_no) AS Qty,
+                       MAX(COUNT(DISTINCT P.trip_no)) OVER() AS M_Qty
+                FROM Pass_in_trip AS P
+                       JOIN Trip AS T
+                         ON P.trip_no = T.trip_no
+                            AND T.town_from = 'Rostov'
+                GROUP BY P.date) AS A
+        WHERE A.Qty = A.M_Qty) AS D
+
+Задача 95
+with a(id_comp, trip_no, date, id_psg, plane) as(
+Select distinct t.id_comp, pit.trip_no, date, id_psg, plane
+from Pass_in_Trip pit
+join trip t on  pit.trip_no = t.trip_no
+)
+Select (select name from company c where c.id_comp = a.id_comp ), 
+count(DISTINCT concat(a.trip_no,"date")) as flights, 
+count(distinct a.plane) as planes, 
+count(distinct a.id_psg) as diff_psngrs,
+count( a.id_psg) as total_psngrs
+from a
+GROUP BY a.id_comp
+
+Задача 96
+with a as(
+Select b_v_id from utB 
+join utV on utb.b_v_id = utV.v_id and v_color = 'R'
+group by b_v_id
+having count(concat( b_q_id, b_v_id, "b_datetime")) >= 2
+), 
+b as(
+select distinct b_q_id, utB.b_v_id   from utB
+join utV on utB.b_v_id = utV.v_id and v_color = 'B'
+)
+select distinct (select v_name from utV where b_v_id= v_id) from utB 
+where b_v_id in (select b_v_id  from a)
+and b_q_id in (select b_q_id   from b )
+
+Задача 97
+WITH T AS
+(
+	SELECT code,
+	CAST(speed as float) AS speed,
+	CAST(ram as float) AS ram,
+	CAST(price as float) AS price,
+	CAST(screen as float) AS screen
+	FROM Laptop
+),
+Res AS
+(
+SELECT *,
+IIF(IIF(rn=1,0,LAG(val) OVER(ORDER BY code, rn))*2<=val,1,0) AS pole
+FROM
+(
+SELECT code, val, TypeOf, ROW_NUMBER() OVER(PARTITION BY unp.code ORDER BY unp.val) AS rn
+FROM T
+	UNPIVOT
+	(
+	val FOR TypeOf IN (speed, ram, price, screen)
+	) unp
+)R
+)
+
+SELECT code,speed,ram,price,screen
+FROM Laptop
+WHERE (SELECT COUNT(*) FROM Res WHERE Res.code = Laptop.code AND Res.pole> 0) = 4
+
+Задача 98
+with nums_bin as(
+SELECT 	code,speed,ram,
+		cast((speed|ram) as  int) as num from pc
+),
+ ctebins as
+(select code,speed,ram,num as num_orig, num as working_level, cast('' as varchar(max)) as binval
+from nums_bin
+union all
+select code,speed,ram,c.num_orig, c.working_level / 2, cast(c.working_level % 2 as varchar(max)) + c.binval
+from ctebins c
+where c.working_level > 0
+)
+select code,speed,ram
+from ctebins
+
+where working_level = 0
+and CHARINDEX('1111', binval)> 0
+
+Задача 101
+with a as(
+SELECT *,
+    CASE 
+    WHEN LAG(color) over(order by code) is null
+    THEN 1 
+    when color = 'n'
+    then 1
+    END as r 
+  FROM Printer
+),
+b as(
+select *, SUM(r) OVER ( ORDER BY code RANGE UNBOUNDED PRECEDING) g
+from a
+)
+select code,model,color,type,price,
+max(model) OVER ( PARTITION BY g) as max_model,
+
+MAX(CASE type WHEN'Laser'THEN 1 ELSE 0 END)OVER(PARTITION BY g)+
+  MAX(CASE type WHEN'Matrix'THEN 1 ELSE 0 END)OVER(PARTITION BY g)+
+  MAX(CASE type WHEN'Jet'THEN 1 ELSE 0 END)OVER(PARTITION BY g)distinct_types,
+ 
+avg(price) OVER ( PARTITION BY g) 
+
+from b
+
+Задача 102 
+select name from passenger
+where id_psg in
+(
+select id_psg from trip t,pass_in_trip pit
+where t.trip_no=pit.trip_no
+group by id_psg
+having count(distinct case when town_from<=town_to then town_from+town_to else town_to+town_from end)=1
+)

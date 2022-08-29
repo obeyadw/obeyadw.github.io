@@ -1,0 +1,99 @@
+1 ) SQL: Медианные суммы заказов - https://itresume.ru/problems/find-median-order
+
+with a as(
+select 
+  ord_datetime, 
+  cast(sum(an_price) as numeric) as an_price
+from Analysis a
+INNER JOIN Orders on an_id = ord_an
+group by ord_datetime
+)
+select 
+     TO_CHAR(ord_datetime,'YYYY-MM') as dt,
+     PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY an_price asc) 
+      "interpolated_median",
+     PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY an_price asc) 
+      "real_median"
+from a
+group by TO_CHAR(ord_datetime,'YYYY-MM')
+
+
+
+
+2 ) [Тестовое Альфа-банк] Покупки товара после 10 октября 2021 - https://itresume.ru/problems/alpha-bank-purchases-after-10-october
+
+select 
+  count( distinct ID_CUSTOMER) as count
+from customer
+join purchases on ID_CUSTOMER = user_id  
+join skus on purchases.sku_id = skus.id  and skus.id = 5
+where purchases.created_at >= '2021-10-10'
+
+
+
+3 ) [Тестовое Альфа-банк] Средняя стоимость 5 покупки - https://itresume.ru/problems/alpha-bank-avg-5th-purchase-price
+
+with a as(select 
+  ID_CUSTOMER, 
+  TOWN, 
+  purchases.id as id,  
+  created_at,
+  skus.price,
+  sku_id,
+  row_number() over(partition by ID_CUSTOMER order by created_at, purchases.id) as purch_cnt
+from customer
+join purchases on user_id  = ID_CUSTOMER
+join skus on skus.id = sku_id  
+order by ID_CUSTOMER, created_at
+          )
+select town, avg(price) as avg_price_5th_purchase  from a
+where purch_cnt  = 5
+group by town  
+order by avg_price_5th_purchase DESC
+
+
+4 ) Группа продаж в течение последнего года https://itresume.ru/problems/year-sales-group
+
+with a as(
+select 
+  an_id, count(ord_datetime) as amount  
+from Analysis 
+join Orders on ord_an = an_id
+where ord_datetime >= TO_DATE('20190301','YYYYMMDD')
+and ord_datetime <= TO_DATE('20200301','YYYYMMDD')
+group by an_id
+  )
+select 
+  an_id,  amount, 
+  case when amount <= 10 then 0 
+  when amount > 10 and amount <= 20 then 1
+  else  2
+  end as gr
+from a 
+order by an_id asc
+
+
+5 ) Продажи за 2019 и 2020 год https://itresume.ru/problems/sales-in-2019-and-2020
+
+WITH A AS(
+SELECT
+*, EXTRACT(YEAR FROM ord_datetime) AS Year
+FROM Orders
+), B AS(
+SELECT 
+  ord_an,
+  COUNT(ord_id) AS CNT, 
+  Year::int
+FROM A
+WHERE Year <> 2018
+ GROUP BY ord_an, Year  
+  )
+SELECT 
+  B.ord_an AS an,  
+  MAX(B1.cnt) AS YEAR2019, 
+  MAX(B2.cnt) AS YEAR2020
+FROM B
+LEFT JOIN (SELECT * FROM B WHERE year  = 2019)B1 ON B1.ord_an = B.ord_an AND B1.year = B.year  
+LEFT JOIN (SELECT * FROM B WHERE year  = 2020)B2 ON B2.ord_an = B.ord_an AND B2.year = B.year
+GROUP BY B.ord_an
+ORDER BY B.ord_an ASC
