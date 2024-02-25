@@ -1,5 +1,5 @@
 async function loadPosters() {
-    const response = await fetch('https://raw.githubusercontent.com/obeyadw/p/main/js_dammy.csv');
+    const response = await fetch('/js_dammy.csv');
     const data = await response.text();
     const movies = data.split('\n').slice(1).map(line => line.split(','));
 
