@@ -1,5 +1,5 @@
 async function loadPosters() {
-    const response = await fetch('/js_dammy.csv');
+    const response = await fetch('https://raw.githubusercontent.com/obeyadw/p/main/js_dammy.csv');
     const data = await response.text();
     const movies = data.split('\n').slice(1).map(line => line.split(','));
 
@@ -7,17 +7,27 @@ async function loadPosters() {
     const loadMoreButton = document.getElementById('load-more');
 
     for (let i = 0; i < 24; i++) {
-        //alert(movies[i]);
         const [title, posterUrl, ids] = movies[i];
-        const img = document.createElement('img');
-        var aTag = document.createElement('a');
 
-        img.src = posterUrl;
-        img.className = 'movie-poster';
+        const img = document.createElement('img');
+        var divBlock = document.createElement('div');
+        var divText = document.createElement('div');
+        var divImg = document.createElement('div');
+        var aTag = document.createElement('a');
+        var imgTag = document.createElement('img');
+
+        divText.textContent = title;
+        divText.id = "movie-info";
         aTag.href = "https://www.kinopoisk.ru/film/"+ids;
-        aTag.target = "_blank"; 
-        aTag.appendChild(img);
-        moviePosters.appendChild(aTag);
+        aTag.target = "_blank";
+        imgTag.className = 'movie-poster';
+        imgTag.src = posterUrl; 
+        
+        aTag.appendChild(imgTag);
+        divImg.appendChild(aTag);
+        divImg.appendChild(divText);
+        divBlock.appendChild(divImg);
+        moviePosters.appendChild(divBlock);
 
     }
 
@@ -28,32 +38,26 @@ async function loadPosters() {
         const newMovies = movies.splice(24, 8);
         for (let i = 0; i < 8; i++) {
             const [title, posterUrl, ids] = newMovies[i];
-            //alert(ids);
-
-            // const div = document.createElement('div');
-            // div.textContent = title;
-            // moviePosters.appendChild(div);
-
-            // const img = document.createElement('img');
-            // img.src = posterUrl;
-            // img.className = 'movie-poster';
-            // moviePosters.appendChild(img);
-
-
+         
             var moviePosters = document.getElementById('movie-posters');
+            var divBlock = document.createElement('div');
+            var divText = document.createElement('div');
+            var divImg = document.createElement('div');
             var aTag = document.createElement('a');
             var imgTag = document.createElement('img');
 
+            divText.textContent = title;
+            divText.id = "movie-info";
             aTag.href = "https://www.kinopoisk.ru/film/"+ids;
+            aTag.target = "_blank";
             imgTag.className = 'movie-poster';
             imgTag.src = posterUrl;
-            aTag.target = "_blank"; 
-            // imgTag.height = 300;
-            // imgTag.width = 200;
 
             aTag.appendChild(imgTag);
-            moviePosters.appendChild(aTag);
-
+            divImg.appendChild(aTag);
+            divImg.appendChild(divText);
+            divBlock.appendChild(divImg);
+            moviePosters.appendChild(divBlock);
             
             
         }
