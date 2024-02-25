@@ -12,6 +12,13 @@
     object-fit: cover;
 }
 
+#movie-info {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.19em;
+    margin-left: 10px;
+    width: 200px;
+}
+
 #load-more {
     margin: 20px auto;
     display: block;
