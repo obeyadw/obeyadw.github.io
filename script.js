@@ -9,15 +9,20 @@ async function loadPosters() {
     for (let i = 0; i < 24; i++) {
         const [title, posterUrl, ids] = movies[i];
 
-        const img = document.createElement('img');
         var divBlock = document.createElement('div');
         var divText = document.createElement('div');
+        var divRate = document.createElement('div');
         var divImg = document.createElement('div');
         var aTag = document.createElement('a');
         var imgTag = document.createElement('img');
 
+        divRate.textContent = '10';
+        divRate.id = "movie-rate";
         divText.textContent = title;
         divText.id = "movie-info";
+
+        divImg.id = "container";
+
         aTag.href = "https://www.kinopoisk.ru/film/"+ids;
         aTag.target = "_blank";
         imgTag.className = 'movie-poster';
@@ -25,6 +30,7 @@ async function loadPosters() {
         
         aTag.appendChild(imgTag);
         divImg.appendChild(aTag);
+        divImg.appendChild(divRate);
         divImg.appendChild(divText);
         divBlock.appendChild(divImg);
         moviePosters.appendChild(divBlock);
