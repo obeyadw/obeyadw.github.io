@@ -1,3 +1,7 @@
+#container {
+    position: relative;
+}
+
 #movie-posters {
     display: flex;
     flex-wrap: wrap;
@@ -17,6 +21,19 @@
     font-size: 1.19em;
     margin-left: 10px;
     width: 200px;
+}
+
+
+#movie-rate {
+    position: absolute;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.19em;
+    top: 15px;
+    left: 15px;
+    color: #FFFFFF;
+    background: green;
+       
+    
 }
 
 #load-more {
