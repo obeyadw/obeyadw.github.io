@@ -8,8 +8,6 @@ name,poster_path,kinopoisk_id,rate
 Триллеp 40,https://imagetmdb.cub.red/t/p/w500/gjPWSlywWlIH8L2lVpKMpyA12GO.jpg,5125572,9.29
 Выкуп,https://imagetmdb.cub.red/t/p/w500/AedqiaXbWhG8uaF10RHa0Gzrtgt.jpg,1236015,6.7
 Ловкий плут,https://imagetmdb.cub.red/t/p/w500/3xhycTWtx8TsQDllkQ4g7s2mGBR.jpg,5368233,7.6
-Вернуть любой ценой,https://imagetmdb.cub.red/t/p/w500/q0MQq7b5wCLZJSmmLE1GhzP8kFJ.jpg,916113,9.17
-Глаз пустыни,https://imagetmdb.cub.red/t/p/w500/erQiRqNTdEVr50uuopEuNk7Kor6.jpg,5394456,7.5
 Чебурашка. Выходной,https://imagetmdb.cub.red/t/p/w500/nqVytZyOjsnkRCrjwX1b5dEDWv5.jpg,5431615,8.1
 Догмен,https://imagetmdb.cub.red/t/p/w500/rhvNgsWZXJ1Hix9RafDMIbd6SsO.jpg,4922959,7.8
 Похороны,https://imagetmdb.cub.red/t/p/w500/wTCyywrlS6bzKlpg2rlQzuafYP7.jpg,1142281,6.8
@@ -17,6 +15,7 @@ name,poster_path,kinopoisk_id,rate
 И солнце снова взойдет,https://imagetmdb.cub.red/t/p/w500/13sNHyJx0uSGLydmqjgvAi2FT3m.jpg,5055773,8.5
 Тела,https://imagetmdb.cub.red/t/p/w500/ubjUeB3ndRWEBAJte3oSDpuBs9o.jpg,4909245,7.0
 Грисельда,https://imagetmdb.cub.red/t/p/w500/7HTpFiHEXmQ91B4DPtgxtPsw1Iu.jpg,4746054,6.8
+Глаз пустыни,https://imagetmdb.cub.red/t/p/w500/erQiRqNTdEVr50uuopEuNk7Kor6.jpg,5394456,7.5
 «Терапия» Себастьяна Фитцека,https://imagetmdb.cub.red/t/p/w500/ofkzAGj2Rcx4nUs8QE0uPGFrp9m.jpg,5081350,7.0
 Магазин для киллеров,https://imagetmdb.cub.red/t/p/w500/wc4cAuvF4JsbIElRkYAhjk91NNg.jpg,5274192,8.3
 30 дней,https://imagetmdb.cub.red/t/p/w500/9HYAkujh1UAKXByIF6LB4D3KsgA.jpg,5261217,7.1
@@ -25,12 +24,13 @@ name,poster_path,kinopoisk_id,rate
 Братья Сунь,https://imagetmdb.cub.red/t/p/w500/hoOZK1h8OszZV5Ek8O1Ba70dAFh.jpg,5009179,7.1
 Мальчик глотает Вселенную,https://imagetmdb.cub.red/t/p/w500/qxhO5NJ9TYjSHpGeQ4sE3KYE7m3.jpg,5120414,7.2
 Особняк с привидениями,https://imagetmdb.cub.red/t/p/w500/pE0LqHpxaQvKZCuNR2EikRNO39e.jpg,542534,6.3
+Добро пожаловать в Самдалри,https://imagetmdb.cub.red/t/p/w500/5axZllylBVeKv9cduhCisOYUqIp.jpg,5330456,8.3
 Лос Биллис,https://imagetmdb.cub.red/t/p/w500/a6qep5xwzSsMYrXNvEvhhMZk0ro.jpg,5405276,7.7
 Весь невидимый нам свет,https://imagetmdb.cub.red/t/p/w500/lnXFDEMSp7fpewz4Nxtb0eA11cf.jpg,4653555,6.8
-Добро пожаловать в Самдалри,https://imagetmdb.cub.red/t/p/w500/5axZllylBVeKv9cduhCisOYUqIp.jpg,5330456,8.3
 Скотт Пилигрим жмет на газ,https://imagetmdb.cub.red/t/p/w500/3kMiYBCnVpFsHzyMyM83iJJJfzz.jpg,4825559,7.7
 Семейный план,https://imagetmdb.cub.red/t/p/w500/A7hPzNi5zceYNYtRh0z8pIqy2E0.jpg,5107088,6.3
 Под прикрытием,https://imagetmdb.cub.red/t/p/w500/fI5Oa8jwNXGIO9Lxy71Z0LbnqLf.jpg,4909072,5.7
+Вернуть любой ценой,https://imagetmdb.cub.red/t/p/w500/q0MQq7b5wCLZJSmmLE1GhzP8kFJ.jpg,916113,8.46
 Успешный,https://imagetmdb.cub.red/t/p/w500/rb04UwS1UMzPEs46szy7RZXFvI4.jpg,5399182,6.9
 Повышение,https://imagetmdb.cub.red/t/p/w500/w0OP3ho2iClFg1qIOYuPqv96skO.jpg,5081337,6.6
 Властелины воздуха,https://imagetmdb.cub.red/t/p/w500/ondfe0K5CTb6YO2k6LZYOxN2NOb.jpg,1322676,7.7
@@ -60,8 +60,8 @@ name,poster_path,kinopoisk_id,rate
 Законники: Басс Ривз,https://imagetmdb.cub.red/t/p/w500/pDFGT41jWX7BvGeden1K4Krn7II.jpg,4646038,6.3
 «Монарх»: Наследие монстров,https://imagetmdb.cub.red/t/p/w500/kam0gTmqC0h68uLiRxamj38nkPX.jpg,4836083,6.5
 Король улиц,https://imagetmdb.cub.red/t/p/w500/59bpFb178p1dtvGegQ6T9X6zIEi.jpg,5284642,6.2
+Код 8: Часть 2,https://imagetmdb.cub.red/t/p/w500/15fXIrB3CoiwaHmeUoKK1f7Ve2h.jpg,4469760,7.69
 Джунгли. Райский переполох,https://imagetmdb.cub.red/t/p/w500/jYYwTxnbHw6PFfgi4m6ei6G0SPx.jpg,5364319,6.5
-Код 8: Часть 2,https://imagetmdb.cub.red/t/p/w500/15fXIrB3CoiwaHmeUoKK1f7Ve2h.jpg,4469760,7.67
 Карающая длань,https://imagetmdb.cub.red/t/p/w500/5in8RtYv4n8nN3noLT69m2klLrv.jpg,4926291,6.5
 Красный 5,https://imagetmdb.cub.red/t/p/w500/zhnAdZucUJaS7Q0xZ1NLMbNqvRE.jpg,5047301,7.65
 Прелесть,https://imagetmdb.cub.red/t/p/w500/kOUZlkPoGskOZXyNiTLlXbqD0Ft.jpg,5194592,6.4
