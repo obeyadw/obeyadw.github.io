@@ -5,8 +5,8 @@ name,poster_path,kinopoisk_id,rate
 Грисельда,https://imagetmdb.cub.red/t/p/w500/7HTpFiHEXmQ91B4DPtgxtPsw1Iu.jpg,4746054,6.7
 Не содержит кровь,https://imagetmdb.cub.red/t/p/w500/bTfBTLzoaBIfwFbnJi2sWdhbXTR.jpg,5101852,8.85
 Властелины воздуха,https://imagetmdb.cub.red/t/p/w500/ondfe0K5CTb6YO2k6LZYOxN2NOb.jpg,1322676,7.6
-Меня зовут Ро Киван,https://imagetmdb.cub.red/t/p/w500/jtPwNxvjzVYwRM2TakNSPOMCFL1.jpg,5255495,6.8
 Настоящая жизнь жука,https://imagetmdb.cub.red/t/p/w500/xlkCvXPB4Hc0yPjozNVi9pvuF0M.jpg,5428083,8.68
+Меня зовут Ро Киван,https://imagetmdb.cub.red/t/p/w500/jtPwNxvjzVYwRM2TakNSPOMCFL1.jpg,5255495,6.8
 Материнский инстинкт,https://imagetmdb.cub.red/t/p/w500/1oKe0BmQus7ZrmgYoWFa6Ltr2DP.jpg,4967684,7.1
 Татуировщик из Освенцима,https://imagetmdb.cub.red/t/p/w500/8kniGitWTLoVzj7pAiyuthZnlQj.jpg,5447301,7.1
 Мальчик глотает Вселенную,https://imagetmdb.cub.red/t/p/w500/qxhO5NJ9TYjSHpGeQ4sE3KYE7m3.jpg,5120414,7.2
@@ -28,9 +28,9 @@ name,poster_path,kinopoisk_id,rate
 Охотники с пустоши,https://imagetmdb.cub.red/t/p/w500/cazjAPe4cKv7pxyL3E5hO2TucUQ.jpg,5243574,6.2
 Чеболь против детектива,https://imagetmdb.cub.red/t/p/w500/aLrGyfe2nbfM9PvtSYoKy5jEOJu.jpg,5416815,8.1
 Цена соблазна,https://imagetmdb.cub.red/t/p/w500/9X58LMxLRq55BjABdQ0gHy5rMeH.jpg,5509073,5.0
-Шардлейк,https://imagetmdb.cub.red/t/p/w500/bumDpUT8b6J43aDSdNZ77n7mwBt.jpg,5504084,6.5
 Наш живой мир,https://imagetmdb.cub.red/t/p/w500/kxIiYubhBenIOxASJl46Nn81mND.jpg,5459824,7.7
 Карающая длань,https://imagetmdb.cub.red/t/p/w500/5in8RtYv4n8nN3noLT69m2klLrv.jpg,4926291,6.6
+Шардлейк,https://imagetmdb.cub.red/t/p/w500/bumDpUT8b6J43aDSdNZ77n7mwBt.jpg,5504084,6.5
 Снупи представляет: добро пожаловать домой Фрэнклин,https://imagetmdb.cub.red/t/p/w500/clCPQs5LZPKSUtz1cwV3Lg3kWok.jpg,5444604,7.2
 Наклз,https://imagetmdb.cub.red/t/p/w500/zqT1Te9dnI3I8oDnDaLffFPaZ3c.jpg,4889675,5.8
 Невидимое,https://imagetmdb.cub.red/t/p/w500/nCTVxygzAXh8uKDYoBCnI0Cy9E1.jpg,5445202,6.1
@@ -39,8 +39,9 @@ name,poster_path,kinopoisk_id,rate
 Бодкин,https://imagetmdb.cub.red/t/p/w500/1GlHM5dRomaUnTLSypWJIPxbFQ6.jpg,5010965,6.7
 Третий лишний,https://imagetmdb.cub.red/t/p/w500/cahNXUK7bp9RTPItIVyOF2z5m0L.jpg,4475348,7.5
 Как пойти на свидание с Билли Уолшем,https://imagetmdb.cub.red/t/p/w500/qSLf5eUhrTVaJFCc3QyZ3S9Gg2d.jpg,5096151,5.7
-Красная королева,https://imagetmdb.cub.red/t/p/w500/xSifVxU70KrO3MrGyz6nonuMWZS.jpg,5024491,6.8
 Пэриш,https://imagetmdb.cub.red/t/p/w500/a32g5hTBnf63J1mAu12NqmHEESB.jpg,5069425,7.1
+Красная королева,https://imagetmdb.cub.red/t/p/w500/xSifVxU70KrO3MrGyz6nonuMWZS.jpg,5024491,6.8
+Акулы в Париже,https://imagetmdb.cub.red/t/p/w500/r4neVHKeupFw5RGNGUyAJCm4rnK.jpg,5452344,5.5
 Городской охотник,https://imagetmdb.cub.red/t/p/w500/cjQzJ9xFdaN9KAwu7HUImIgbc2Y.jpg,5235272,6.3
 Пять свиданий вслепую,https://imagetmdb.cub.red/t/p/w500/f4Q51r4x318CDYpBlLzmZbpZMxO.jpg,5141443,5.0
 Созвездие,https://imagetmdb.cub.red/t/p/w500/pon5QHLxrsgmyZKVSUdpXmHg08C.jpg,5212290,6.8
@@ -49,40 +50,39 @@ name,poster_path,kinopoisk_id,rate
 Детективы с того света,https://imagetmdb.cub.red/t/p/w500/4JQlFKudZWq1B9BjtyP3fv7bIs1.jpg,4549968,7.2
 Охота за убийцей,https://imagetmdb.cub.red/t/p/w500/lcoxNrC8Z00MiUynsqxNtwQDjvA.jpg,4909266,6.4
 Код 8: Часть 2,https://imagetmdb.cub.red/t/p/w500/15fXIrB3CoiwaHmeUoKK1f7Ve2h.jpg,4469760,5.7
-Акулы в Париже,https://imagetmdb.cub.red/t/p/w500/r4neVHKeupFw5RGNGUyAJCm4rnK.jpg,5452344,5.5
 Долгожданный рассвет,https://imagetmdb.cub.red/t/p/w500/auRBjel4dphKSgUvgGMruNQOZqe.jpg,5080020,6.4
 Мир юрского периода: теория хаоса,https://imagetmdb.cub.red/t/p/w500/psbv6opK9pEpXVtX6uzuUUKXDmc.jpg,5419025,7.7
 99,https://imagetmdb.cub.red/t/p/w500/tDkzFvNP8H8HM163nFmitPx0s53.jpg,5511491,8.8
 Яблоки никогда не падают,https://imagetmdb.cub.red/t/p/w500/nmVKlDjMOPVy0MdAMQ42ANolaci.jpg,4859755,6.6
 Rebel Moon. Часть вторая: Оставляющая шрамы,https://imagetmdb.cub.red/t/p/w500/habjuTKViM4zU75aM4Zef2mie70.jpg,5398903,5.5
 Полностью выдуманные приключения Дика Турпина,https://imagetmdb.cub.red/t/p/w500/rNiAu70DcPT8maUxoLrWZX1alBq.jpg,5447300,7.4
-Эрик,https://imagetmdb.cub.red/t/p/w500/aStjhEPBZFoRGHaUKX6Z3wEBPfA.jpg,5395103,6.8
+Эрик,https://imagetmdb.cub.red/t/p/w500/aStjhEPBZFoRGHaUKX6Z3wEBPfA.jpg,5395103,6.7
 Один день,https://imagetmdb.cub.red/t/p/w500/b3b5nvnIh3Nk7rPEsW6T1CpBzEB.jpg,5139096,7.7
 Франклин,https://imagetmdb.cub.red/t/p/w500/ewop2pGp4EAT5pJSOsnuVR5o0VR.jpg,5004943,6.6
+Начальник следственного отдела 1958 год,https://imagetmdb.cub.red/t/p/w500/gquU6dIZ4uzqmIQA9kkGsD0wD9S.jpg,5286718,8.0
 Вуаль,https://imagetmdb.cub.red/t/p/w500/m1LudfwLTc2X6MadjR6il2xs4Sb.jpg,5073138,5.7
 Лига Справедливости: Кризис на бесконечных землях. Часть 1,https://imagetmdb.cub.red/t/p/w500/mrki6wmuUWGIqPW3MbAdCeGZMK9.jpg,5395803,6.2
-Разбойница Нелл,https://imagetmdb.cub.red/t/p/w500/cOI1PGIXsKGh6Z3cmzH1x9yoe24.jpg,5121060,6.8
 Лига справедливости: Кризис на бесконечных землях. Часть 2,https://imagetmdb.cub.red/t/p/w500/cbSLLE03iCG18LNHA2IGVHxDSY5.jpg,5426232,5.6
-Аколит,https://imagetmdb.cub.red/t/p/w500/1LxAoDAdQtBhP3YYxZEjwjcrDXc.jpg,1379845,6.06
+Разбойница Нелл,https://imagetmdb.cub.red/t/p/w500/cOI1PGIXsKGh6Z3cmzH1x9yoe24.jpg,5121060,6.8
 Палм-Рояль,https://imagetmdb.cub.red/t/p/w500/xr3ICXwqfQ8YaCKNHFrWXmnbz8z.jpg,4859943,6.6
 Суперсекс,https://imagetmdb.cub.red/t/p/w500/tWqgxcaaMWFbneUcepBrEpq3jQh.jpg,5120138,6.2
 Мэри и Джордж,https://imagetmdb.cub.red/t/p/w500/2JL4YMM4qCTvPntbUcEK0q8b6EB.jpg,5416910,7.0
-Начальник следственного отдела 1958 год,https://imagetmdb.cub.red/t/p/w500/gquU6dIZ4uzqmIQA9kkGsD0wD9S.jpg,5286718,8.0
+Аколит,https://imagetmdb.cub.red/t/p/w500/1LxAoDAdQtBhP3YYxZEjwjcrDXc.jpg,1379845,5.93
 Хроники Спайдервика,https://imagetmdb.cub.red/t/p/w500/yWFhW0RWY2uGPHTCBmzAPsSiT7c.jpg,4714202,5.5
 Захват рейса 601,https://imagetmdb.cub.red/t/p/w500/y68axXoHsa98kz8nSUONH8qeNre.jpg,5494681,5.86
 Последний клан ниндзя,https://imagetmdb.cub.red/t/p/w500/mWe0VnF0SXcbEPIHsayKjpVqxVB.jpg,5151658,6.7
 Резидент,https://imagetmdb.cub.red/t/p/w500/6VKMzNSRguU4HPXurDFP24EFeLT.jpg,5120401,5.1
+Девушка-гик,https://imagetmdb.cub.red/t/p/w500/7yW6ktYELzZANJ4Jdb0rHMJEi0l.jpg,5613193,5.62
 Правила Мегамозга!,https://imagetmdb.cub.red/t/p/w500/kXdT6ait0Kw4ylzFgEA0z8kWaMM.jpg,4855989,2.0
 Адское свидание,https://imagetmdb.cub.red/t/p/w500/zFbzU6Nnzr5D1oofnEpkLa720L6.jpg,5511528,6.2
-Дом совы,https://imagetmdb.cub.red/t/p/w500/k832BMsVmuZVBaKW5qIGEGoWQd2.jpg,5507811,6.6
-Пленяя короля,https://imagetmdb.cub.red/t/p/w500/llCDNlOzbjrDIroIMQwCQDoElZU.jpg,5407776,7.7
-Нам повезло,https://imagetmdb.cub.red/t/p/w500/1S9956U3pQhvfuHqwle51sof0t4.jpg,5125738,7.2
-Иваджу,https://imagetmdb.cub.red/t/p/w500/Xe1g06yVnotq89tCRps5Nj01Nt.jpg,4511631,7.3
 Всё еще на коне,https://imagetmdb.cub.red/t/p/w500/FToY0m3aJpZUPjeqYN9akNptad.jpg,5447316,4.9
+Иваджу,https://imagetmdb.cub.red/t/p/w500/Xe1g06yVnotq89tCRps5Nj01Nt.jpg,4511631,7.3
+Пленяя короля,https://imagetmdb.cub.red/t/p/w500/llCDNlOzbjrDIroIMQwCQDoElZU.jpg,5407776,7.7
+Дом совы,https://imagetmdb.cub.red/t/p/w500/k832BMsVmuZVBaKW5qIGEGoWQd2.jpg,5507811,6.6
+Нам повезло,https://imagetmdb.cub.red/t/p/w500/1S9956U3pQhvfuHqwle51sof0t4.jpg,5125738,7.2
 Крайне опасен,https://imagetmdb.cub.red/t/p/w500/iM6vmknAzw0luTKgI5NteKhyTRD.jpg,4696486,5.9
 Омен. Первое знамение,https://imagetmdb.cub.red/t/p/w500/pEMikSKm8SwlztAo94FrZssbA4p.jpg,977595,5.9
 Шестьдесят минут,https://imagetmdb.cub.red/t/p/w500/9vjU3K3g95s2Ik0TB4sUARBwSvw.jpg,5429849,5.8
-Девушка-гик,https://imagetmdb.cub.red/t/p/w500/7yW6ktYELzZANJ4Jdb0rHMJEi0l.jpg,5613193,5.48
 Сорвать банк,https://imagetmdb.cub.red/t/p/w500/8fyGHmNoUeZmhYvd9iPKsVPzkHE.jpg,5362000,6.4
 Эксклюзивное интервью,https://imagetmdb.cub.red/t/p/w500/qCEvuRNKMHfxZjtocoS1hdrgxhj.jpg,5368140,6.1
 Зорро,https://imagetmdb.cub.red/t/p/w500/hyKvcjTL93x5kqTsqCI4rTNtPNI.jpg,5091936,6.5
@@ -93,8 +93,8 @@ Rebel Moon. Часть вторая: Оставляющая шрамы,https://i
 Экспаты,https://imagetmdb.cub.red/t/p/w500/2Pnpj5Hlv7alCeu0EQMSP7JW7sN.jpg,1178662,6.4
 Охота на киллера,https://imagetmdb.cub.red/t/p/w500/3z24p2oWjaV98f9CtOXR0RsNL7r.jpg,5023998,6.1
 Честно говоря,https://imagetmdb.cub.red/t/p/w500/wcrsQpQSnhto523YCpEkFxUfPS1.jpg,5257412,5.0
-Полиция Индии,https://imagetmdb.cub.red/t/p/w500/hEiUy3Du35ZmVeKgVQnDK6wgMAt.jpg,4948619,5.1
 Девушки в автобусе,https://imagetmdb.cub.red/t/p/w500/udZzMB0ibMuwZa5fWL7RCZXncJ.jpg,5050400,6.7
+Полиция Индии,https://imagetmdb.cub.red/t/p/w500/hEiUy3Du35ZmVeKgVQnDK6wgMAt.jpg,4948619,5.1
 Клаустрофобы: Инсомния,https://imagetmdb.cub.red/t/p/w500/oHlqiyNHe4eI2cuRTiUHwuI0Js8.jpg,4949084,5.5
 Золотое божество,https://imagetmdb.cub.red/t/p/w500/geU7j9ZvOgyUm3Cu3qtFt3bgoqQ.jpg,4930379,6.3
 Мегамозг против Синдиката Рока,https://imagetmdb.cub.red/t/p/w500/rtQYsfEhWE9hGX94dZyPFoMdg2V.jpg,5450608,3.8
@@ -125,6 +125,7 @@ Rebel Moon. Часть вторая: Оставляющая шрамы,https://i
 Кукольная анимация,https://imagetmdb.cub.red/t/p/w500/oU0veFFpbEGfzF7wnw3ovDy0MyL.jpg,4889005,5.5
 Полный провал,https://imagetmdb.cub.red/t/p/w500/uz6wjU8RkeG3osN7nB9CyFhCoNA.jpg,5495985,6.4
 Моя страна,https://imagetmdb.cub.red/t/p/w500/gOFBpQBRcPFZWEkzRWnQgQHku4T.jpg,5094840,4.6
+Иерархия,https://imagetmdb.cub.red/t/p/w500/rULIBlzh1apfUjPUMi77V6mYStU.jpg,5307155,2.22
 Пурга,https://imagetmdb.cub.red/t/p/w500/sRlFGpLg57tuXCTkHKumpUSYvv6.jpg,5144406,7.5
 Прощай Земля,https://imagetmdb.cub.red/t/p/w500/58JJGssI6KhWR8NplSQd9XDXOtN.jpg,4820196,4.3
 Если бы ты был последним,https://imagetmdb.cub.red/t/p/w500/5iEx38cKXY2mj9P19Zb4M1FF3cS.jpg,4985730,6.2
@@ -134,4 +135,3 @@ Rebel Moon. Часть вторая: Оставляющая шрамы,https://i
 Смертельно горячий,https://imagetmdb.cub.red/t/p/w500/8CExe21AQ7fNrZ0NJt2JmDkUITz.jpg,5454165,6.3
 Ничего не происходит: Италия,https://imagetmdb.cub.red/t/p/w500/mi1Yv34DJ6n2laHJKZ83E97hjCd.jpg,5428778,6.1
 Бакстеры,https://imagetmdb.cub.red/t/p/w500/eCMp3Y4g923PDHnHwMZeXzQm7kC.jpg,1120166,6.3
-Иерархия,https://imagetmdb.cub.red/t/p/w500/rULIBlzh1apfUjPUMi77V6mYStU.jpg,5307155,0.0
