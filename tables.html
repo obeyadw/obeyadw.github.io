@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSV Table</title>
+  <link href="https://unpkg.com/tabulator-tables@5.4.0/dist/css/tabulator.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.4.0/dist/js/tabulator.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+  <div id="example-table"></div>
+
+  <script>
+    // Загрузка CSV файла
+    Papa.parse("https://obeyadw.github.io/js_dammy.csv", {
+      download: true,
+      header: true,
+      complete: function(results) {
+        var table = new Tabulator("#example-table", {
+          data: results.data,
+          layout: "fitColumns",
+          columns: Object.keys(results.data[0]).map(function(key) {
+            return {title: key, field: key};
+          }),
+        });
+      }
+    });
+  </script>
