@@ -79,7 +79,89 @@
     <div class="thumbnails" id="thumbnails">
         <!-- Thumbnails will be added by JavaScript -->
     </div>
+	
+	<div class="resume">
+    <h2>Резюме</h2>
+    
+    <h3>Ключевые навыки</h3>
+    
+    <h4>BI & Визуализация</h4>
+    <ul>
+        <li>Инструменты: Tableau, Power BI (Мультимеры - switch, закладки), Redash, Qlik Sense, Google Looker.</li>
+    </ul>
+    
+    <h4>Анализ данных и программирование (Data Engineering)</h4>
+    <ul>
+        <li><strong>Python:</strong>
+            <ul>
+                <li>ETL-автоматизация: Разработка пайплайнов для выгрузки данных из CRM через API, обработка (pandas, numpy, собственные алгоритмы), загрузка в БД/хранилища.</li>
+                <li>Airflow: Создание DAG's для обработки задач (cron расписания, обработка ошибок, мониторинг). Пример: «DAG для ежедневного обновления HR-метрик из CRM».</li>
+                <li>Парсинг: Scrapy, BeautifulSoup (веб-скрапинг), REST API (интеграции с сервисами). Пример: «Сбор резюме с работных сайтов».</li>
+            </ul>
+        </li>
+        <li><strong>SQL:</strong>
+            <ul>
+                <li>Сложные запросы (CTE, подзапросы), оконные функции, оптимизация производительности.</li>
+            </ul>
+        </li>
+        <li><strong>Excel:</strong>
+            <ul>
+                <li>Обработка в Power Query, Power Pivot (модели данных, DAX)</li>
+            </ul>
+        </li>
+        <li><strong>Статистика:</strong>
+            <ul>
+                <li>Основы проверки гипотез (A/B-тесты, t-критерий, хи-квадрат), работа с распределениями эмпирически (Bootstrap генерации).</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h4>Метрики:</h4>
+    <ul>
+        <li><strong>HR:</strong> Текучесть, ROI рекрутинга, истощение, Occupancy, Utilization и другие метрики колл центра.</li>
+        <li><strong>E-commerce:</strong> Конверсии, churn, rfm, retention (скользяща, n-дня), cohort-анализ.</li>
+        <li><strong>Финансовый анализ:</strong> Расчет выплат/начислений, операционная эффективность (CAC, LTV, ROI), прогнозирование.</li>
+    </ul>
+    
+    <h3>Сертификаты и достижения</h3>
+    <ul>
+        <li>Яндекс Алгоритмы и структуры данных (сертификат)</li>
+        <li>Яндекс Coderun 2023: Призовое место в соревнованиях для аналитиков (решение задач на SQL/Python).</li>
+        <li>Karpov.courses Data Analyst 7 месяцев (Python, SQL, статистика, BI).</li>
+        <li>Английский (Intermediate).</li>
+    </ul>
+</div>
 
+<style>
+    .resume {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+        background: #182842;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .resume h2 {
+        color: #fff;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+    }
+    .resume h3 {
+        color: #2980b9;
+        margin-top: 20px;
+    }
+    .resume h4 {
+        color: #16a085;
+        margin: 15px 0 10px;
+    }
+    .resume ul {
+        margin-left: 20px;
+    }
+    .resume li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+    }
+</style>
     <script>
         const imageUrls = [
             "https://raw.githubusercontent.com/obeyadw/obeyadw.github.io/main/BI_screens/pbi1.png",
