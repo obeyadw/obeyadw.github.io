@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider with Thumbnails</title>
+    <style>
+        body {
+			color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+			background-color: #0f1a2c;
+        }
+        .slider-container {
+            position: relative;
+            width: 800px;
+            height: 500px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            height: 100%;
+        }
+        .slide {
+			background: #fff;
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .thumbnail {
+            width: 100px;
+            height: 70px;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        .thumbnail:hover {
+            border-color: #4CAF50;
+        }
+        .thumbnail.active {
+            border-color: #2196F3;
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Примеры моих BI Дашбордов и сертификаты</h1>
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <!-- Images will be added by JavaScript -->
+        </div>
+    </div>
+    <div class="thumbnails" id="thumbnails">
+        <!-- Thumbnails will be added by JavaScript -->
+    </div>
+
+    <script>
+        const imageUrls = [
+            "https://raw.githubusercontent.com/obeyadw/obeyadw.github.io/main/BI_screens/pbi1.png",
+            "https://raw.githubusercontent.com/obeyadw/obeyadw.github.io/main/BI_screens/pbi2.png",
+            "https://raw.githubusercontent.com/obeyadw/obeyadw.github.io/main/BI_screens/pbi3.png",
+            "https://raw.githubusercontent.com/obeyadw/obeyadw.github.io/main/BI_screens/pbi4.png",
+            "https://raw.githubusercontent.com/obeyadw/obeyadw.github.io/main/BI_screens/pbi5.png",
+            "https://raw.githubusercontent.com/obeyadw/obeyadw.github.io/main/BI_screens/tableau1.png",
+            "https://raw.githubusercontent.com/obeyadw/obeyadw.github.io/main/BI_screens/tableau2.png",
+			"https://raw.githubusercontent.com/obeyadw/obeyadw.github.io/refs/heads/main/certificates/codrun.png",
+			"https://raw.githubusercontent.com/obeyadw/obeyadw.github.io/refs/heads/main/certificates/kc.png",
+			"https://raw.githubusercontent.com/obeyadw/obeyadw.github.io/refs/heads/main/certificates/yndx.png"
+        ];
+
+        const slider = document.getElementById('slider');
+        const thumbnailsContainer = document.getElementById('thumbnails');
+        let currentIndex = 0;
+
+        // Load images into the slider and thumbnails
+        imageUrls.forEach((url, index) => {
+            // Main slide
+            const slide = document.createElement('div');
+            slide.className = 'slide';
+            
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = `Dashboard ${index + 1}`;
+            
+            slide.appendChild(img);
+            slider.appendChild(slide);
+
+            // Thumbnail
+            const thumbnail = document.createElement('div');
+            thumbnail.className = 'thumbnail';
+            thumbnail.dataset.index = index;
+            
+            const thumbImg = document.createElement('img');
+            thumbImg.src = url;
+            thumbImg.alt = `Thumbnail ${index + 1}`;
+            
+            thumbnail.appendChild(thumbImg);
+            thumbnailsContainer.appendChild(thumbnail);
+
+            // Click event for thumbnail
+            thumbnail.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+                updateThumbnails();
+            });
+        });
+
+        // Update slider position
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Highlight active thumbnail
+        function updateThumbnails() {
+            document.querySelectorAll('.thumbnail').forEach((thumb, idx) => {
+                thumb.classList.toggle('active', idx === currentIndex);
+            });
+        }
+
+        // Initialize
+        updateSlider();
+        updateThumbnails();
+    </script>
+</body>
+</html>
