@@ -1,13 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Google Sheets Data Counter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отчет из Google Таблицы</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      padding: 20px;
+    }
+    .loader {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .count {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .error {
+      color: red;
+    }
+    .success {
+      color: green;
+    }
+  </style>
 </head>
 <body>
-  <h1>Данные из Google Таблицы</h1>
-  <p>Количество строк данных: <span id="rowCount">0</span></p>
+  <h1>Отчет из Google Таблицы</h1>
   
-  <script src="script.js"></script>
+  <div id="loader" class="loader"></div>
+  <div id="status">Загрузка данных...</div>
+  
+  <div id="counts">
+    <p>Всего строк: <span id="totalCount" class="count">0</span></p>
+    <p>Строк за сегодня: <span id="todayCount" class="count">0</span></p>
+  </div>
+  
+  <div id="tableContainer">
+    <h2>Данные за сегодня (<span id="todayDate"></span>)</h2>
+    <table id="dataTable"></table>
+  </div>
+
+  <script>
+    // Настройки
+    const TSV_URL = "https://docs.google.com/spreadsheets/d/1kyYzOMVS1tgz1xeR7AVQbYaaSxqTLDmEtsY81W27LvI/export?format=tsv&gid=0";
+    const DATE_COLUMN = "published_a";
+    
+    // Элементы страницы
+    const loader = document.getElementById('loader');
+    const status = document.getElementById('status');
+    const totalCount = document.getElementById('totalCount');
+    const todayCount = document.getElementById('todayCount');
+    const todayDate = document.getElementById('todayDate');
+    const dataTable = document.getElementById('dataTable');
+    
+    // Получаем текущую дату в формате DD.MM.YYYY
+    function getTodayDate() {
+      const now = new Date();
+      const day = String(now.getDate()).padStart(2, '0');
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const year = now.getFullYear();
+      return `${day}.${month}.${year}`;
+    }
+    
+    // Основная функция загрузки данных
+    async function loadData() {
+      const today = getTodayDate();
+      todayDate.textContent = today;
+      
+      try {
+        const response = await fetch(TSV_URL);
+        if (!response.ok) throw new Error(`Ошибка HTTP: ${response.status}`);
+        
+        const tsvData = await response.text();
+        const rows = tsvData.split('\n').filter(row => row.trim() !== '');
+        
+        if (rows.length < 2) throw new Error('Таблица пуста или содержит только заголовки');
+        
+        // Находим индекс столбца с датами
+        const headers = rows[0].split('\t');
+        const dateIndex = headers.findIndex(col => col.trim() === DATE_COLUMN);
+        
+        if (dateIndex === -1) throw new Error(`Столбец '${DATE_COLUMN}' не найден`);
+        
+        // Собираем данные
+        let total = 0;
+        let todayData = [];
+        
+        for (let i = 1; i < rows.length; i++) {
+          const cells = rows[i].split('\t');
+          total++;
+          if (cells[dateIndex] && cells[dateIndex].trim() === today) {
+            todayData.push(cells);
+          }
+        }
+        
+        // Обновляем интерфейс
+        totalCount.textContent = total;
+        todayCount.textContent = todayData.length;
+        
+        // Создаем таблицу
+        dataTable.innerHTML = `
+          <tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>
+          ${todayData.map(row => `
+            <tr>${row.map(cell => `<td>${cell || ''}</td>`).join('')}</tr>
+          `).join('')}
+        `;
+        
+        status.textContent = 'Данные успешно загружены';
+        status.className = 'success';
+        
+      } catch (error) {
+        status.textContent = `Ошибка: ${error.message}`;
+        status.className = 'error';
+        console.error(error);
+      } finally {
+        loader.style.display = 'none';
+      }
+    }
+    
+    // Запускаем загрузку
+    loadData();
+  </script>
 </body>
 </html>
